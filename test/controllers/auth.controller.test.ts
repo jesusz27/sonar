@@ -39,12 +39,12 @@ describe("POST " + END_POINT + SINGUP, () => {
 });
 
 describe("POST " + END_POINT + SINGUP, () => {
-    it(`expect return: ${HttpStatusCode.NOT_FOUND} `, (done) => {
+    it(`expect return: ${HttpStatusCode.CONFLICT} `, (done) => {
         const userInputDto: UserInputDto = { idUser: "Jesusz27", password: "1234a" , email : "master@master.com" };
         return request(app).post(END_POINT + SINGUP)
             .send(userInputDto)
             .end(async (err, res) => {
-                expect(res.status).to.equal(HttpStatusCode.NOT_FOUND);
+                expect(res.status).to.equal(HttpStatusCode.CONFLICT);
                 done();
             });
     });
