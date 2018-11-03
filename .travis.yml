@@ -1,0 +1,24 @@
+language:
+- node_js
+node_js:
+- 9.2.1
+branches:
+  only:
+  - master
+  - develop
+services:
+- mongodb
+before_script:
+- npm install
+script:
+- npm run all-test-travis
+- sonar-scanner -Dsonar.projectKey=jazh-70213154 -Dsonar.organization=jesusz27-github
+  -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=a23f5b9cdbfa0a3cfeb017613a0a16c9b32b0bf5
+deploy:
+  provider: heroku
+  api_key:
+    secure: gqTZPaZ8o9tdKAUn38PKP2s2nGuZ3Qwmtg3L+5dw+6JwvR40ed8u7t+0WZc88p9PGkRS/XzjsH8xl5VevDAK/S9bb/419ClwE3zOGMn6UVdO7/CCISXtU5poQ9PM/CWqZ6f4KShlhgCxcrw2oMC68SAK8WUVpv3OKS5aIPvPXWKwjp5HAYgb28G++Q0bwgvyf9IV4U+v2cPgMUh/wFLwtvWKf7Nc8nuUmckO2/03koK7dKn02gq4WIy9+W1S5i30N0Lr+/ZzhXWurrvJJr7GuKYStathpWE+zopsfkHy6o47bEmdLY2t7A2Gl1ll/LwHKaT+6MAw6JhmlXZA5IBEQy5RT/3khiE3CjGtVBSQIvxv4StbanyilOo+fmV4zN/yWRHLMtDXmi7K5LVGEBU1xEzzsyHuWApevUJQg5YNQJowVfNXKwjBaBtBAvBcEqpOZVards7zFkqf835yos52NYcnx9M+utIJMOdMoD2gylX5CJZ5fNAyRWQPypGmG3cF8kGzA1C4ACh3/N8F8OQzXKvzByETKMvnmcm87PD45IU9GNZkKnulW2kK4FcME4sw7dnL3IziQcJaF8+oi4Oq+w/QIT4VfWGx16aRK3upSRc1eU4euR1hZjOtaZHj9JvCxxNWz/o9XHZCSdR6PUlXJuSXaYfLu1+VO1rST4N3WWI=
+  app: zea-pfm
+  on:
+    repo: jesusz27/backend-node
+    branch: develop

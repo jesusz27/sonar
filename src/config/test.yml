@@ -1,0 +1,29 @@
+# Users
+users:
+- &user0 
+    _id: {$oid: "161d87b8b260cf35147998ca"}
+    idUser: Jesusz27 
+    email: jez@a.com
+    password: 1234a
+- &user1
+    _id: {$oid: "261d87b8b260cf35147998ca"}
+    idUser: Jesus1352 
+    email: je12@a.com
+    password: 1234a
+- &user2
+    _id: {$oid: "361d87b8b260cf35147998ca"}
+    idUser: Smith
+    email: smith@gmail.com
+    password: 1234
+
+# Contacts
+contacts:
+- &contact0
+    _id: {$oid: "5b49ba1ff3dc292dc0f86437"}
+    codUser: {$oid: "161d87b8b260cf35147998ca"}
+    codContact: {$oid: "261d87b8b260cf35147998ca"}
+    status: 'SELECTED'
+- &contact1
+    codUser: {$oid: "261d87b8b260cf35147998ca"}
+    codContact: {$oid: "161d87b8b260cf35147998ca"}
+
